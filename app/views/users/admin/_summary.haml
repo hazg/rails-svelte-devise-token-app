@@ -1,0 +1,9 @@
+%ul.list-group{style: 'display: inline-block; slist-style-type: none;'}
+  - PayType.all.each do |x|
+    %li.list-group-item
+      =x.title
+      %span.badge.pull-right
+        - if !x.sysname.empty?
+          = user.payments.by_pay_type(x.sysname).sum(:amount)
+        - else
+          = user.payments.sum(:amount)

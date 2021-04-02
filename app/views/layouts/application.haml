@@ -1,0 +1,15 @@
+-# - rev = revision()
+-# - rev = '?rev=' + rev if rev.present?
+!!!
+%html{ :class => 'dark'}
+  %head
+    %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }/
+    %meta{ :name => "viewport", :content=>"width=device-width, initial-scale=1" }/
+    %title Rails svelte app
+    = csrf_meta_tags
+    = csp_meta_tag
+    %script{ src: "/packs/bundle.js", type: "module" }
+  %body
+    = yield
+    #app
+    %link{ rel: "stylesheet", media: "screen", href: "/packs/bundle.css" }
