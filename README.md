@@ -1,6 +1,6 @@
 # README
 
-Rails application with svelte and devise_token_auth
+Rails application with svelte, rollup, and devise_token_auth
 
 Install and run
 ---------------
