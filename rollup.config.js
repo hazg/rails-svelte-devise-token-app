@@ -9,7 +9,7 @@ import sveltePreprocess from 'svelte-preprocess'
 import uglify from "rollup-plugin-uglify-es"
 import visualizer from 'rollup-plugin-visualizer'
 import replace from '@rollup/plugin-replace'
-import json from '@rollup/plugin-json';
+import json from '@rollup/plugin-json'
 
 
 const production = !process.env.ROLLUP_WATCH
