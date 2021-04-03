@@ -8,11 +8,32 @@ export const User = {
     window.location.reload()
   },
   auth: ()        => { return JSON.parse(localStorage.getItem("auth")) },
-  signIn: (auth)  => {
+  signIn: (auth) => {
     localStorage.setItem("auth", JSON.stringify(auth))
   },
   isLoggedIn: ()  => {
     return ((localStorage.getItem('auth') == null)? false : true)
+  },
+
+  register: async (email, password, password_confirmation) => {
+     // Get auth token by email and password
+     let res = await fetch('/api/v1/auth', {
+      method: 'POST',
+      headers: {
+        'X-CSRF-Token': document.querySelector('meta[name=csrf-token]').content,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        password,
+        password_confirmation
+      })
+     })
+    if (res.ok) { }
+    else {
+      full_messages
+      console.log(res)
+    }
   },
 
   login: async (email, password) => {

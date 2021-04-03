@@ -9,6 +9,7 @@ import sveltePreprocess from 'svelte-preprocess'
 import uglify from "rollup-plugin-uglify-es"
 import visualizer from 'rollup-plugin-visualizer'
 import replace from '@rollup/plugin-replace'
+import json from '@rollup/plugin-json';
 
 
 const production = !process.env.ROLLUP_WATCH
@@ -28,6 +29,7 @@ export default {
 	preserveEntrySignatures: 'struct',
 	plugins: [
 		del({ targets: 'public/packs/*.(js|map)' }),
+		json(),
 		svelte({
 			onwarn: (warning, handler) => {
 				const { code, frame, filename } = warning

@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 2021_04_02_134042) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.datetime "current_sign_in_ip"
+    t.datetime "last_sign_in_ip"
+    t.datetime "sign_in_count"
     t.string "provider"
     t.string "uid", default: "", null: false
     t.text "tokens"
